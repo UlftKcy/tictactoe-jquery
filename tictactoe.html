@@ -83,9 +83,18 @@
         height: 5px;
         background-color: #ffff;
       }
+      #game_container button{
+        color: #ffff;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      #display_win_text{
+        font-size:3rem;
+      }
     </style>
   </head>
-  <body>
+  <body class="d-flex flex-column">
+    <div id="display_win_text" class="text-warning font-size-h5">You are win !!!</div>
     <div id="game_container" class="container mt-5">
       <div class="row d-flex justify-content-center align-items-center">
         <button id="btn_left_top" class="btn col-3 btn-select"></button>

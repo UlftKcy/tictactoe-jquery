@@ -12,16 +12,16 @@
     />
     <title>TicTacToe Game</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
-        background-image:  linear-gradient(to right, #d35f5f 0%, #4638c7 100%);
+        background-image: linear-gradient(to right, #d35f5f 0%, #4638c7 100%);
         width: 100vw;
         min-height: 100vh;
-        overflow: hidden;
+        overflow-x: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -33,17 +33,7 @@
         justify-content: center;
         align-items: center;
         border: 1px solid #ffff;
-        background: linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0.15) 0%,
-            rgba(0, 0, 0, 0.15) 100%
-          ),
-          radial-gradient(
-              at top center,
-              rgba(22, 46, 110, 0.4) 0%,
-              rgba(11, 36, 146, 0.4) 120%
-            )
-            #989898;
+        background-color: #5a5f70;
         background-blend-mode: multiply, multiply;
         box-shadow: 0 5px 15px #0000;
         opacity: 0.8;
@@ -65,7 +55,7 @@
       }
       .start-game:hover {
         background-color: blue;
-        color:#ffff;
+        color: #ffff;
       }
       .start-game:focus,
       .start-game:active {
@@ -83,30 +73,48 @@
         height: 5px;
         background-color: #ffff;
       }
-      #game_container button{
+      #game_container button {
         color: #ffff;
         font-size: 2rem;
         font-weight: bold;
       }
-      #display_win_text{
-        font-size:3rem;
+      #display_win_text {
+        font-size: 3rem;
+      }
+      .point-text {
+        font-size: 1.5rem;
+        padding: 6px 10px;
+        margin: 10px 0;
       }
     </style>
   </head>
   <body class="d-flex flex-column">
-    <div id="display_win_text" class="text-warning font-size-h5">You are win !!!</div>
+    <div
+      id="display_point_screen"
+      class="row w-25"
+    >
+      <div class="col-6 text-white point-text mr-2">
+        X Point : <span id="display_x_point"></span>
+      </div>
+      <div class="col-6 text-white point-text">
+        O Point : <span id="display_o_point"></span>
+      </div>
+    </div>
+    <div id="display_win_text" class="text-warning font-size-h5">
+      You are win !!!
+    </div>
     <div id="game_container" class="container mt-5">
       <div class="row d-flex justify-content-center align-items-center">
         <button id="btn_left_top" class="btn col-3 btn-select"></button>
         <button id="btn_center_top" class="btn col-3 btn-select"></button>
         <button id="btn_right_top" class="btn col-3 btn-select"></button>
       </div>
-      <div class="row d-flex justify-content-center">
+      <div class="row d-flex justify-content-center align-items-center">
         <button id="btn_left_center" class="btn col-3 btn-select"></button>
         <button id="btn_center_center" class="btn col-3 btn-select"></button>
         <button id="btn_right_center" class="btn col-3 btn-select"></button>
       </div>
-      <div class="row d-flex justify-content-center">
+      <div class="row d-flex justify-content-center align-items-center">
         <button id="btn_left_bottom" class="btn col-3 btn-select"></button>
         <button id="btn_center_bottom" class="btn col-3 btn-select"></button>
         <button id="btn_right_bottom" class="btn col-3 btn-select"></button>
@@ -115,7 +123,8 @@
     <div id="opening_screen">
       <button
         type="button"
-        class="btn start-game"
+        id="btn_start"
+        class="btn start-game mb-5 mt-2"
         data-bs-toggle="modal"
         data-bs-target="#gameModal"
       >

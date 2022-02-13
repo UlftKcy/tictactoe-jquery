@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: linear-gradient(to right, #d35f5f 0%, #4638c7 100%);
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#game_container .btn {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ffff;
+  background-color: #5a5f70;
+  background-blend-mode: multiply, multiply;
+  box-shadow: 0 5px 15px #0000;
+  opacity: 0.8;
+}
+#game_container .btn:hover {
+  opacity: 1;
+}
+#game_container .btn:focus,
+#game_container .btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+.progress-bar {
+  width: 0%;
+  height: 5px;
+  background-color: rgb(40, 40, 214);
+  border-radius: 5px;
+}
+.start-game:hover .progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #ffff;
+}
+#game_container button {
+  color: #ffff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+#display_win_text {
+  font-size: 3rem;
+}
+.point-text {
+  font-size: 1.5rem;
+  padding: 6px 10px;
+  margin: 10px 0;
+}
+@media only screen and (max-width: 600px) {
+  #game_container .btn {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #game_container .btn {
+    height: 120px;
+    width: 120px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #game_container .btn {
+    height: 130px;
+    width: 130px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #game_container .btn {
+    height: 140px;
+    width: 140px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #game_container .btn {
+    height: 150px;
+    width: 150px;
+  }
+}

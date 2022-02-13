@@ -1,12 +1,10 @@
 $(document).ready(function () {
+  // variables
   let game_container = $("#game_container");
-  let btn_start = $("#btn_start");
   let display_point_screen = $("#display_point_screen");
   let display_x_point = $("#display_x_point");
   let display_o_point = $("#display_o_point");
-  display_point_screen.hide();
-  game_container.hide();
-  $("#display_win_text").hide();
+  let btn_select = $(".btn-select");
   let opening_screen = $("#opening_screen");
   let user_selected_option;
   let system_option;
@@ -14,7 +12,24 @@ $(document).ready(function () {
   let system_counter = 0;
   display_x_point.text(user_counter);
   display_o_point.text(system_counter);
-  
+  let btn_select_arr = [...btn_select];
+  display_point_screen.hide();
+  game_container.hide();
+  $("#display_win_text").hide();
+  // reset game
+  $(document).on("click", "#reset_game", function () {
+    $("#btn_start").trigger("click");
+    opening_screen.show();
+    btn_select.prop("disabled", false);
+    btn_select.css("background-color", "#5A5F70");
+    btn_select.text("");
+    btn_select_arr = [...btn_select];
+    user_counter = 0;
+    system_counter = 0;
+    display_x_point.text(user_counter);
+    display_o_point.text(system_counter);
+  });
+  // start game
   $(document).on("click", ".modal-body>button", function () {
     let option = $(this).text();
     if (option == "O") {
@@ -29,34 +44,34 @@ $(document).ready(function () {
     game_container.show();
     display_point_screen.show();
   });
-  let btn_select = $(".btn-select");
-  let btn_select_arr = [...btn_select];
+  // display game win function
   function DisplayGameWin() {
     $("#display_win_text").show();
-    $(".btn-select").prop("disabled", true);
+    btn_select.prop("disabled", true);
     setTimeout(() => {
       $("#display_win_text").hide();
-      $(".btn-select").prop("disabled", false);
-      $(".btn-select").css("background-color","#5A5F70");
-      $(".btn-select").text("");
-      btn_select = $(".btn-select");
+      btn_select.prop("disabled", false);
+      btn_select.css("background-color", "#5A5F70");
+      btn_select.text("");
       btn_select_arr = [...btn_select];
     }, 1000);
   }
+   // counter function
   function UserCounterIncrease(user_counter) {
     if (user_selected_option == "X") {
       display_x_point.text(user_counter);
-    }else {
+    } else {
       display_o_point.text(user_counter);
     }
-  };
+  }
   function SystemCounterIncrease(system_counter) {
     if (system_option == "X") {
       display_x_point.text(system_counter);
-    }else {
+    } else {
       display_o_point.text(system_counter);
     }
-  };
+  }
+  // match buttons function
   function MatchBtnFunc() {
     let btn_left_top = $("#btn_left_top");
     let btn_center_top = $("#btn_center_top");
@@ -83,11 +98,9 @@ $(document).ready(function () {
         btn_left_top_text == btn_center_top_text &&
         btn_left_top_text == btn_right_top_text
       ) {
-        btn_left_top.css("background-color","green");
-        btn_center_top.css("background-color","green");
-        btn_right_top.css("background-color","green");
-        console.log(user_selected_option)
-        console.log(system_option)
+        btn_left_top.css("background-color", "green");
+        btn_center_top.css("background-color", "green");
+        btn_right_top.css("background-color", "green");
         if (btn_left_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
@@ -104,9 +117,9 @@ $(document).ready(function () {
         btn_left_center_text == btn_center_center_text &&
         btn_left_center_text == btn_right_center_text
       ) {
-        btn_left_center.css("background-color","green");
-        btn_center_center.css("background-color","green");
-        btn_right_center.css("background-color","green");
+        btn_left_center.css("background-color", "green");
+        btn_center_center.css("background-color", "green");
+        btn_right_center.css("background-color", "green");
         if (btn_left_center_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
@@ -123,9 +136,9 @@ $(document).ready(function () {
         btn_left_bottom_text == btn_center_bottom_text &&
         btn_left_bottom_text == btn_right_bottom_text
       ) {
-        btn_left_bottom.css("background-color","green");
-        btn_center_bottom.css("background-color","green");
-        btn_right_bottom.css("background-color","green");
+        btn_left_bottom.css("background-color", "green");
+        btn_center_bottom.css("background-color", "green");
+        btn_right_bottom.css("background-color", "green");
         if (btn_left_bottom_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
@@ -142,9 +155,9 @@ $(document).ready(function () {
         btn_left_top_text == btn_left_center_text &&
         btn_left_top_text == btn_left_bottom_text
       ) {
-        btn_left_top.css("background-color","green");
-        btn_left_center.css("background-color","green");
-        btn_left_bottom.css("background-color","green");
+        btn_left_top.css("background-color", "green");
+        btn_left_center.css("background-color", "green");
+        btn_left_bottom.css("background-color", "green");
         if (btn_left_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
@@ -161,9 +174,9 @@ $(document).ready(function () {
         btn_center_top_text == btn_center_center_text &&
         btn_center_top_text == btn_center_bottom_text
       ) {
-        btn_center_top.css("background-color","green");
-        btn_center_center.css("background-color","green");
-        btn_center_bottom.css("background-color","green");
+        btn_center_top.css("background-color", "green");
+        btn_center_center.css("background-color", "green");
+        btn_center_bottom.css("background-color", "green");
         if (btn_center_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
@@ -180,9 +193,9 @@ $(document).ready(function () {
         btn_right_top_text == btn_right_center_text &&
         btn_right_top_text == btn_right_bottom_text
       ) {
-        btn_right_top.css("background-color","green");
-        btn_right_center.css("background-color","green");
-        btn_right_bottom.css("background-color","green");
+        btn_right_top.css("background-color", "green");
+        btn_right_center.css("background-color", "green");
+        btn_right_bottom.css("background-color", "green");
         if (btn_right_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
@@ -199,9 +212,9 @@ $(document).ready(function () {
         btn_left_top_text == btn_center_center_text &&
         btn_left_top_text == btn_right_bottom_text
       ) {
-        btn_left_top.css("background-color","green");
-        btn_center_center.css("background-color","green");
-        btn_right_bottom.css("background-color","green");
+        btn_left_top.css("background-color", "green");
+        btn_center_center.css("background-color", "green");
+        btn_right_bottom.css("background-color", "green");
         if (btn_left_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
@@ -218,9 +231,9 @@ $(document).ready(function () {
         btn_right_top_text == btn_center_center_text &&
         btn_right_top_text == btn_left_bottom_text
       ) {
-        btn_right_top.css("background-color","green");
-        btn_center_center.css("background-color","green");
-        btn_left_bottom.css("background-color","green");
+        btn_right_top.css("background-color", "green");
+        btn_center_center.css("background-color", "green");
+        btn_left_bottom.css("background-color", "green");
         if (btn_right_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
@@ -233,6 +246,7 @@ $(document).ready(function () {
       }
     }
   }
+  // on click button
   $(document).on("click", ".btn-select", function () {
     let this_btn = $(this);
     let this_btn_id = $(this).attr("id");
@@ -253,11 +267,10 @@ $(document).ready(function () {
     MatchBtnFunc();
 
     if (btn_select_arr.length === 0) {
-      $(".btn-select").prop("disabled", false);
+      btn_select.prop("disabled", false);
       setTimeout(() => {
         $("#display_win_text").hide();
-        $(".btn-select").text("");
-        btn_select = $(".btn-select");
+        btn_select.text("");
         btn_select_arr = [...btn_select];
       }, 500);
     }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./tictactoe.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,46 +13,12 @@
     />
     <title>TicTacToe Game</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        background-image: linear-gradient(to right, #d35f5f 0%, #4638c7 100%);
-        width: 100vw;
-        min-height: 100vh;
-        overflow-x: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      #game_container .btn {
-        height: 150px;
-        width: 150px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid #ffff;
-        background-color: #5a5f70;
-        background-blend-mode: multiply, multiply;
-        box-shadow: 0 5px 15px #0000;
-        opacity: 0.8;
-      }
-      #game_container .btn:hover {
-        opacity: 1;
-      }
-      #game_container .btn:focus,
-      #game_container .btn:active {
-        outline: none !important;
-        box-shadow: none;
-      }
       .start-game {
         font-size: 30px;
         text-transform: uppercase;
-        color: blue;
+        color: #ffff;
         font-weight: bolder;
-        border: 1px solid rgb(40, 40, 214);
+        border: 1px solid #ffff;
       }
       .start-game:hover {
         background-color: blue;
@@ -62,42 +29,20 @@
         outline: none !important;
         box-shadow: none;
       }
-      .progress-bar {
-        width: 0%;
-        height: 5px;
-        background-color: rgb(40, 40, 214);
-        border-radius: 5px;
-      }
-      .start-game:hover .progress-bar {
-        width: 100%;
-        height: 5px;
-        background-color: #ffff;
-      }
-      #game_container button {
-        color: #ffff;
-        font-size: 2rem;
-        font-weight: bold;
-      }
-      #display_win_text {
-        font-size: 3rem;
-      }
-      .point-text {
-        font-size: 1.5rem;
-        padding: 6px 10px;
-        margin: 10px 0;
-      }
     </style>
   </head>
   <body class="d-flex flex-column">
-    <div
-      id="display_point_screen"
-      class="row w-25"
-    >
-      <div class="col-6 text-white point-text mr-2">
+    <div id="display_point_screen" class="row w-50">
+      <div
+        class="col-lg-6 d-flex justify-content-center text-white point-text mr-2"
+      >
         X Point : <span id="display_x_point"></span>
       </div>
-      <div class="col-6 text-white point-text">
+      <div class="col-lg-6 d-flex justify-content-center text-white point-text">
         O Point : <span id="display_o_point"></span>
+      </div>
+      <div class="d-flex justify-content-around">
+        <button id="reset_game" class="btn btn-dark px-5">Reset</button>
       </div>
     </div>
     <div id="display_win_text" class="text-warning font-size-h5">

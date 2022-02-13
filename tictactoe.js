@@ -50,29 +50,41 @@ $(document).ready(function () {
   });
   // user win game function
   function DisplayUserWinGame() {
-    display_user_win.show();
-    btn_select.prop("disabled", true);
+    setTimeout(() => {
+      game_container.hide();
+      display_point_screen.hide();
+      display_user_win.show();
+      btn_select.prop("disabled", true);
+    }, 1000);
     setTimeout(() => {
       display_user_win.hide();
+      game_container.show();
+      display_point_screen.show();
       btn_select.prop("disabled", false);
       btn_select.css("background-color", "#5A5F70");
       btn_select.text("");
       btn_select_arr = [...btn_select];
-    }, 1000);
+    }, 2000);
   }
   // system win game function
   function DisplaySystemWinGame() {
-    display_system_win.show();
-    btn_select.prop("disabled", true);
+    setTimeout(() => {
+      game_container.hide();
+      display_point_screen.hide();
+      display_system_win.show();
+      btn_select.prop("disabled", true);
+    }, 1000);
     setTimeout(() => {
       display_system_win.hide();
+      game_container.show();
+      display_point_screen.show();
       btn_select.prop("disabled", false);
       btn_select.css("background-color", "#5A5F70");
       btn_select.text("");
       btn_select_arr = [...btn_select];
-    }, 1000);
+    }, 2000);
   }
-   // counter function
+  // counter function
   function UserCounterIncrease(user_counter) {
     if (user_selected_option == "X") {
       display_x_point.text(user_counter);

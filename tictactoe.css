@@ -48,7 +48,7 @@ body {
   font-size: 2rem;
   font-weight: bold;
 }
-#display_win_text {
+#display_user_win, #display_system_win{
   font-size: 3rem;
 }
 .point-text {

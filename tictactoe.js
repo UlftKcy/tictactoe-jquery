@@ -6,6 +6,8 @@ $(document).ready(function () {
   let display_o_point = $("#display_o_point");
   let btn_select = $(".btn-select");
   let opening_screen = $("#opening_screen");
+  let display_user_win = $("#display_user_win");
+  let display_system_win = $("#display_system_win");
   let user_selected_option;
   let system_option;
   let user_counter = 0;
@@ -15,7 +17,8 @@ $(document).ready(function () {
   let btn_select_arr = [...btn_select];
   display_point_screen.hide();
   game_container.hide();
-  $("#display_win_text").hide();
+  display_user_win.hide();
+  display_system_win.hide();
   // reset game
   $(document).on("click", "#reset_game", function () {
     $("#btn_start").trigger("click");
@@ -45,12 +48,24 @@ $(document).ready(function () {
     game_container.show();
     display_point_screen.show();
   });
-  // display game win function
-  function DisplayGameWin() {
-    $("#display_win_text").show();
+  // user win game function
+  function DisplayUserWinGame() {
+    display_user_win.show();
     btn_select.prop("disabled", true);
     setTimeout(() => {
-      $("#display_win_text").hide();
+      display_user_win.hide();
+      btn_select.prop("disabled", false);
+      btn_select.css("background-color", "#5A5F70");
+      btn_select.text("");
+      btn_select_arr = [...btn_select];
+    }, 1000);
+  }
+  // system win game function
+  function DisplaySystemWinGame() {
+    display_system_win.show();
+    btn_select.prop("disabled", true);
+    setTimeout(() => {
+      display_system_win.hide();
       btn_select.prop("disabled", false);
       btn_select.css("background-color", "#5A5F70");
       btn_select.text("");
@@ -105,12 +120,13 @@ $(document).ready(function () {
         if (btn_left_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
+          DisplayUserWinGame();
         }
         if (btn_left_top_text == system_option) {
           system_counter++;
           SystemCounterIncrease(system_counter);
+          DisplaySystemWinGame();
         }
-        DisplayGameWin();
       }
     }
     if (btn_left_center_text !== "") {
@@ -124,12 +140,13 @@ $(document).ready(function () {
         if (btn_left_center_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
+          DisplayUserWinGame();
         }
         if (btn_left_center_text == system_option) {
           system_counter++;
           SystemCounterIncrease(system_counter);
+          DisplaySystemWinGame();
         }
-        DisplayGameWin();
       }
     }
     if (btn_left_bottom_text !== "") {
@@ -143,12 +160,13 @@ $(document).ready(function () {
         if (btn_left_bottom_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
+          DisplayUserWinGame();
         }
         if (btn_left_bottom_text == system_option) {
           system_counter++;
           SystemCounterIncrease(system_counter);
+          DisplaySystemWinGame();
         }
-        DisplayGameWin();
       }
     }
     if (btn_left_top_text !== "") {
@@ -162,12 +180,13 @@ $(document).ready(function () {
         if (btn_left_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
+          DisplayUserWinGame();
         }
         if (btn_left_top_text == system_option) {
           system_counter++;
           SystemCounterIncrease(system_counter);
+          DisplaySystemWinGame();
         }
-        DisplayGameWin();
       }
     }
     if (btn_center_top_text !== "") {
@@ -181,12 +200,13 @@ $(document).ready(function () {
         if (btn_center_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
+          DisplayUserWinGame();
         }
         if (btn_center_top_text == system_option) {
           system_counter++;
           SystemCounterIncrease(system_counter);
+          DisplaySystemWinGame();
         }
-        DisplayGameWin();
       }
     }
     if (btn_right_top_text !== "") {
@@ -200,12 +220,13 @@ $(document).ready(function () {
         if (btn_right_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
+          DisplayUserWinGame();
         }
         if (btn_right_top_text == system_option) {
           system_counter++;
           SystemCounterIncrease(system_counter);
+          DisplaySystemWinGame();
         }
-        DisplayGameWin();
       }
     }
     if (btn_left_top_text !== "") {
@@ -219,12 +240,13 @@ $(document).ready(function () {
         if (btn_left_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
+          DisplayUserWinGame();
         }
         if (btn_left_top_text == system_option) {
           system_counter++;
           SystemCounterIncrease(system_counter);
+          DisplaySystemWinGame();
         }
-        DisplayGameWin();
       }
     }
     if (btn_right_top_text !== "") {
@@ -238,12 +260,13 @@ $(document).ready(function () {
         if (btn_right_top_text == user_selected_option) {
           user_counter++;
           UserCounterIncrease(user_counter);
+          DisplayUserWinGame();
         }
         if (btn_right_top_text == system_option) {
           system_counter++;
           SystemCounterIncrease(system_counter);
+          DisplaySystemWinGame();
         }
-        DisplayGameWin();
       }
     }
   }

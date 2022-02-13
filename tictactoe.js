@@ -20,6 +20,7 @@ $(document).ready(function () {
   $(document).on("click", "#reset_game", function () {
     $("#btn_start").trigger("click");
     opening_screen.show();
+    $("#btn_start").hide();
     btn_select.prop("disabled", false);
     btn_select.css("background-color", "#5A5F70");
     btn_select.text("");
